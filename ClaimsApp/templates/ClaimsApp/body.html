@@ -1,0 +1,116 @@
+{% extends "ClaimsApp/header.html" %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+{% block content %}
+{% load crispy_forms_tags %}
+
+<body>
+<form  id="claimdetails" method ='post' action="/add_data/">
+    {% csrf_token %}
+    {{form|crispy}}
+
+    <div>
+        <label for="InsuredName" id="InsuredName_Label ">Insured Name</label>
+        <input list="Insureds" name="InsuredName" id="InsuredName">
+        <datalist id="Insureds">
+            <option value="Pharox">
+            <option value="Bannari Amman">
+            <option value="GoldMedal">
+            <option value="Shiva Mills">
+            <option value="Gharda Chemicals">
+        </datalist>
+
+        <br></br>
+
+    </div>
+
+    <div >
+        <label for="Buyer_name" id="name">Buyer Name</label>
+        <input   name="Buyer_Name"  type="text" id="Buyer_name">
+        <br></br>
+    </div>
+
+    <div>
+        <label for="PAN" id="panno">PAN NO</label>
+        <input  name="pan" id="PAN">
+        <br></br>
+    </div>
+
+    <div>
+        <label for="DefaultAmt" id="default">Default Amt</label>
+        <input  name="default" id="DefaultAmt">
+        <br></br>
+    </div>
+
+
+    <div >
+        <input  type="radio" id="Approved" name="Creditlimitcheck" value="Approved">
+        <label  for="Approved">Approved</label>
+        <input type="radio" id="DCL" name="Creditlimitcheck" value="DCL">
+        <label  for="DCL">DCL</label><br>
+    </div>
+    <br>
+    <div>
+
+        <label for="Report_date">Reporting Date:</label>
+        <input type="date" id="Report_date" name="Report_date">
+
+    </div>
+    <br>
+
+    <div>
+   <button onclick = "alertBox" type="submit" form="claimdetails" value="Submit">Submit</button>
+
+    </div>
+</form>
+<br>
+
+<br>
+<div class="fixed">
+    <h8> Search for Buyer : PAN or Buyer Name</h8>
+<form  method="GET" action="/search/" >
+    <input  type="search" name="search">
+    <button type="submit"> Search </button>
+</form>
+    {% for buyer in buyer_list %}
+
+<p> {{buyer.Buyer_name}}  </p>
+
+
+{%  endfor %}
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<div class="container">
+    <div class="form-group">
+
+        {% if messages  %}
+
+        <ul class="messages">
+            {%  for message in messages %}
+            <li>
+                <div class="alert alert-success alert-dismissible fade show">
+                  {{ message }}
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    </div>
+</div>
+
+
+</body>
+{%  endblock %}

@@ -1,0 +1,70 @@
+
+<body>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<style>
+
+  table, th , td{
+  border: 1px solid black;
+  border-collapse: collapse;
+  table-layout: fixed;
+  width: 100%;
+}
+
+.btn {
+  background-color: DodgerBlue;
+  border: none;
+  color: white;
+  padding: 10px 30px;
+  cursor: pointer;
+  font-size: 10px;
+}
+.btn:hover {
+  background-color: RoyalBlue;
+}
+
+</style>
+
+<div>
+<h6>Buyer List </h6>
+
+
+<table >
+    <tr>
+
+        <th> PAN</th>
+        <th> Buyer Name</th>
+        <th> Insured</th>
+        <th> Default Amount</th>
+        <th> Limit Type</th>
+        <th> Report Date</th>
+
+
+    </tr>
+
+    {%  for buyer in Buyers  %}
+    <tr>
+        <td>{{buyer.PAN}}</td>
+        <td>{{buyer.Buyer_name}} </td>
+        <td>{{buyer.Insured_Name}} </td>
+        <td>{{buyer.Default_Amt}} </td>
+        <td>{{buyer.Limit_Type}} </td>
+        <td>{{buyer.Report_date}} </td>
+
+    </tr>
+    {%  endfor  %}
+
+</table>
+
+</div>
+
+<br></br>
+
+<form id="download" method="post" action="/export/">{% csrf_token %}
+
+<button class="btn"><i class="fa fa-download"></i> Download</button>
+
+</form>
+
+</body>
