@@ -28,7 +28,7 @@ def add_data(request):
     Limit_Type = request.POST.get("Creditlimitcheck")
     Report_date = request.POST["Report_date"]
 
-    if Limit_Type is None or Report_date == "2000-01-01" :
+    if Limit_Type is None or Report_date == "2017-01-01" :
         messages.error(request, 'All fields are Mandatory')
         return render(request, "ClaimsApp/body.html")
 
