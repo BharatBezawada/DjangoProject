@@ -24,7 +24,7 @@ SECRET_KEY = '0soh=+z%e+uq@2rt(tkz)5zb#*##50irlr_coh=tl(3f&8x#3f'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['bharatbezawada.pythonanywhere.com']
 
 # Application definition
 
