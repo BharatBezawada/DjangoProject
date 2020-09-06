@@ -25,8 +25,13 @@ def add_data(request):
     Buyer_name = request.POST["Buyer_Name"]
     PAN = request.POST["pan"]
     Default_Amt = request.POST["default"]
-    Limit_Type = request.POST["Creditlimitcheck"]
+    Limit_Type = request.POST.get("Creditlimitcheck")
     Report_date = request.POST["Report_date"]
+
+    if Limit_Type is None or Report_date == "2000-01-01" :
+        messages.error(request, 'All fields are Mandatory')
+        return render(request, "ClaimsApp/body.html")
+
 
     qs = Claims.objects.all()
     if qs.filter(PAN__icontains=PAN).exists() and qs.filter(Insured_Name__icontains=Insured_Name).exists():

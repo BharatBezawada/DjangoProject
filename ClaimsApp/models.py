@@ -10,7 +10,8 @@ class Claims(models.Model):
     Default_Amt = models.CharField(max_length=20)
     Limit_Type = models.CharField(max_length=20, default=0)
     Report_date = models.DateField()
-    Claim_status = models.CharField(max_length=20, default="NNP")
+    Claim_status = models.CharField(max_length=20, default= "NNP" ,choices=[('NNP','NNP'),('Claim','Claim'),('Claim_Under_Process','Claim Under Process'),
+                                                                          ('Disputed','Disputed'),('Paid and Closed','Paid and Closed')])
 
     def __str__(self):
         return self.Buyer_name
