@@ -6,7 +6,26 @@
 {% block content %}
 {% load crispy_forms_tags %}
 
+<style>
+  button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 3px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+
+
+</style>
+
 <body>
+
 <form  id="claimdetails" method ='post' action="/add_data/">
     {% csrf_token %}
     {{form|crispy}}
@@ -74,10 +93,19 @@
     <input  type="search" name="search">
     <button type="submit"> Search </button>
 </form>
+    <h6> Search Results </h6>
+    <table >
+    <tr>
+        <th> PAN</th>
+        <th> Buyer Name</th>
+        <th> Insured</th>
+    </tr>
     {% for buyer in buyer_list %}
-
-<p> {{buyer.Buyer_name}}  </p>
-
+       <tr>
+           <td>{{buyer.PAN}}</td>
+           <td>{{buyer.Insured_Name}}</td>
+           <td>{{buyer.Buyer_name}}</td>
+       </tr>
 
 {%  endfor %}
 

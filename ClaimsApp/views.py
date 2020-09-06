@@ -61,10 +61,10 @@ def app_data(request):
 def export(request):
     response = HttpResponse(content_type="text/csv")
     writer = csv.writer(response)
-    writer.writerow(['Insured Name', 'Buyer Name', 'PAN', 'Default Amount', 'Limit Type', 'Report date'])
+    writer.writerow(['Insured Name', 'Buyer Name', 'PAN', 'Default Amount', 'Limit Type', 'Report date','Claim Status'])
 
     for buyer in Claims.objects.all().values_list('Insured_Name', 'Buyer_name', 'PAN', 'Default_Amt', 'Limit_Type',
-                                                  'Report_date'):
+                                                  'Report_date','Claim_status'):
         writer.writerow(buyer)
 
     response['Content-Disposition'] = 'attachment; filename="NNP.csv"'

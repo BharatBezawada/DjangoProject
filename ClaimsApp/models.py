@@ -8,12 +8,13 @@ class Claims(models.Model):
      PAN = models.CharField(max_length=20)
      Default_Amt = models.CharField(max_length=20)
      Limit_Type = models.CharField(max_length=20,default=0)
-     Report_date = models.DateField(auto_now= True)
+     Report_date = models.DateField()
+     Claim_status = models.CharField(max_length=20,default=0)
 
      def __str__(self):
          return self.Buyer_name
 
-     class Meta:
+class Meta:
           verbose_name = "Claim"
 
 
