@@ -10,7 +10,7 @@ class Claims(models.Model):
     Default_Amt = models.CharField(max_length=20)
     Limit_Type = models.CharField(max_length=20, default=0)
     Report_date = models.DateField()
-    Claim_status = models.CharField(max_length=20, default=0)
+    Claim_status = models.CharField(max_length=20, default="NNP")
 
     def __str__(self):
         return self.Buyer_name
