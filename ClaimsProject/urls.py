@@ -29,7 +29,7 @@ urlpatterns = [
     url("register1/",v.register, name="register"),
     url('' , include("django.contrib.auth.urls")),
     url("Logout/", v.logout , name="logout"),
-    url("update_server/", views.update, name="update"),
+
 
 
     ]
