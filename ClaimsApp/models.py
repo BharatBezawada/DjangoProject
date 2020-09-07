@@ -12,7 +12,9 @@ class Claims(models.Model):
     Report_date = models.DateField()
     Claim_status = models.CharField(max_length=1000, default= "NNP" ,choices=[('NNP','NNP'),('Claim','Claim'),('Claim_Under_Process','Claim Under Process'),
                                                                           ('Disputed','Disputed'),('Paid and Closed','Paid and Closed')])
-    Limit_Withdrawal = models.DateField(auto_now=True)
+    Limit_Withdrawal = models.DateField()
+    Claim_Extension = models.DateField(auto_now=True)
+
     def __str__(self):
         return self.Buyer_name
 
