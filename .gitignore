@@ -1,2 +1,4 @@
-db.sqlite3
-settings.py
+error.log.txt
+hi.txt
+db.sqlite3.SQLITE3
+settings.py.py
