@@ -27,8 +27,10 @@ def add_data(request):
     Default_Amt = request.POST["default"]
     Limit_Type = request.POST.get("Creditlimitcheck")
     Report_date = request.POST["Report_date"]
+    Limit_Withdrawal = request.POST["Limit_Withdrawal"]
 
-    if Limit_Type is None or Report_date == "2017-01-01" :
+
+    if Limit_Type is None or Report_date == "2017-01-01" or Limit_Withdrawal == "2017-01-01"  :
         messages.error(request, 'All fields are Mandatory')
         return render(request, "ClaimsApp/body.html")
 
@@ -41,7 +43,7 @@ def add_data(request):
     else:
 
         claim_info = Claims(Insured_Name=Insured_Name, Buyer_name=Buyer_name, PAN=PAN, Default_Amt=Default_Amt,
-                            Limit_Type=Limit_Type, Report_date=Report_date)
+                            Limit_Type=Limit_Type, Report_date=Report_date,Limit_Withdrawal = Limit_Withdrawal)
         claim_info.save()
         messages.success(request, 'NNP registered successfully')
         return render(request, "ClaimsApp/body.html")
