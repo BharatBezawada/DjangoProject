@@ -123,3 +123,4 @@ LOGOUT_REDIRECT_URL = "/Logout"
 DATE_INPUT_FORMATS = ['%d-%m-%Y']
 
 
+
