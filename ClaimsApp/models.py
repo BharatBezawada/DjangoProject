@@ -11,9 +11,12 @@ class Claims(models.Model):
     Limit_Type = models.CharField(max_length=20, default=0)
     Report_date = models.DateField()
     Claim_status = models.CharField(max_length=1000, default= "NNP" ,choices=[('NNP','NNP'),('Claim','Claim'),('Claim_Under_Process','Claim Under Process'),
-                                                                          ('Disputed','Disputed'),('Paid and Closed','Paid and Closed')])
+                                                                          ('Disputed','Disputed'),('Paid and Closed','Paid and Closed'),('Overdue Cleared','Overdue Cleared'),('Overdue Cleared and Reinstated','Overdue Cleared and Reinstated')])
     Limit_Withdrawal = models.DateField()
     Claim_Extension = models.DateField(auto_now=True)
+    Claim_Extension_Number = models.CharField(max_length=50, default= 0)
+
+
 
     def __str__(self):
         return self.Buyer_name

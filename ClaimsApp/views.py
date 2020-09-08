@@ -29,6 +29,7 @@ def add_data(request):
     Report_date = request.POST["Report_date"]
     Limit_Withdrawal = request.POST["Limit_Withdrawal"]
     Claim_Extension =  request.POST["Claim_Extension"]
+    Claim_Extension_Number = request.POST["Claim_Extension_Number"]
 
 
     if Limit_Type is None or Report_date == "2017-01-01" or Limit_Withdrawal == "2017-01-01"  :
@@ -44,7 +45,8 @@ def add_data(request):
     else:
 
         claim_info = Claims(Insured_Name=Insured_Name, Buyer_name=Buyer_name, PAN=PAN, Default_Amt=Default_Amt,
-                            Limit_Type=Limit_Type, Report_date=Report_date,Limit_Withdrawal = Limit_Withdrawal, Claim_Extension= Claim_Extension)
+                            Limit_Type=Limit_Type, Report_date=Report_date,Limit_Withdrawal = Limit_Withdrawal, Claim_Extension= Claim_Extension,
+                            Claim_Extension_Number=Claim_Extension_Number)
         claim_info.save()
         messages.success(request, 'NNP registered successfully')
         return render(request, "ClaimsApp/body.html")
