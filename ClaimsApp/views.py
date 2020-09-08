@@ -28,8 +28,8 @@ def add_data(request):
     Limit_Type = request.POST.get("Creditlimitcheck")
     Report_date = request.POST["Report_date"]
     Limit_Withdrawal = request.POST["Limit_Withdrawal"]
-    Claim_Extension =  request.POST["Claim_Extension"]
-    Claim_Extension_Number = request.POST["Claim_Extension_Number"]
+    Claim_Extension = request.POST["Claim_Extension"]
+    Claim_Extension_Number = request.POST["Number_of_extensions"]
 
 
     if Limit_Type is None or Report_date == "2017-01-01" or Limit_Withdrawal == "2017-01-01"  :
