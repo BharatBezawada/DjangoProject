@@ -120,6 +120,6 @@ CRISPY_TEMPLATE_PACK = "bootstrap4"
 
 LOGIN_REDIRECT_URL = "/"
 LOGOUT_REDIRECT_URL = "/Logout"
-DATE_INPUT_FORMATS = ['%d-%m-%Y']
+DATE_INPUT_FORMATS = ('%d-%m-%Y','%Y-%m-%d')
 
 STATIC_ROOT = "/home/BharatBezawada/DjangoProject/static/"

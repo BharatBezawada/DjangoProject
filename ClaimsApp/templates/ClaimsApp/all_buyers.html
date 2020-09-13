@@ -28,7 +28,11 @@
 
 <div>
 <h6>Buyer List </h6>
+<form id="download" method="post" action="/export/">{% csrf_token %}
 
+<button class="btn"><i class="fa fa-download"></i> Download</button>
+
+</form>
 
 <table >
     <tr>
@@ -74,10 +78,6 @@
 
 <br></br>
 
-<form id="download" method="post" action="/export/">{% csrf_token %}
 
-<button class="btn"><i class="fa fa-download"></i> Download</button>
-
-</form>
 
 </body>

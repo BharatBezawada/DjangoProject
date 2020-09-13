@@ -28,9 +28,18 @@ div.container {
 
 }
 
+div.credit_check {
+  position: fixed;
+  top:300px;
+  bottom: 400px;
+  right: 400px;
+  width: 500px;
+
+}
+
 
 </style>
-
+<font size="2" face="Arial" >
 <body>
 
 <form  id="claimdetails" method ='post' action="/add_data/">
@@ -101,9 +110,9 @@ div.container {
     <br>
     <div>
         <label for="Number_of_extensions" id="Number">Claim Extension Number</label>
-        <input list="Number_extensions" name="Number_of_extensions" id="Number_of_extensions" value="FIRST">
+        <input list="Number_extensions" name="Number_of_extensions" id="Number_of_extensions" value="NIL">
         <datalist id="Number_extensions">
-            <option value="FIRST"><option value ="SECOND"> <option value = "THIRD"><option value ="FOURTH" >
+            <option value="NIL"><option value="FIRST"><option value ="SECOND"> <option value = "THIRD"><option value ="FOURTH" >
             <option value="FIFTH">
         </datalist>
 
@@ -118,15 +127,17 @@ div.container {
 </form>
 <br>
 
-<br>
+<a href="/limits_upload/" >For Credit Limits Upload Click Here </a>
+
 <div class="fixed">
-    <h8> Search for Buyer : PAN or Buyer Name</h8>
+    <h8> Search for NNP Buyer : PAN or Buyer Name</h8>
 <form  method="GET" action="/search/" >
     <input  type="search" name="search">
     <button type="submit"> Search </button>
 </form>
+
     <h6> Search Results </h6>
-    <table >
+    <table class="table table-hover">
     <tr>
         <th> PAN</th>
         <th> Buyer Name</th>
@@ -135,11 +146,50 @@ div.container {
     {% for buyer in buyer_list %}
        <tr>
            <td>{{buyer.PAN}}</td>
-           <td>{{buyer.Insured_Name}}</td>
            <td>{{buyer.Buyer_name}}</td>
+           <td>{{buyer.Insured_Name}}</td>
        </tr>
 
     {%  endfor %}
+    </table>
+
+</div>
+
+<div class="credit_check">
+    <h8> Search for Credit Limit Buyer : PAN or Buyer Name</h8>
+     <form  method="GET" action="/credit_limit_check/" >
+    <input  type="search" name="search">
+    <button type="submit"> Search </button>
+     </form>
+    <h6> Search Results </h6>
+    <table class="table table-hover">
+    <tr>
+        <th> Insured </th>
+        <th> Buyer Name</th>
+        <th> PAN</th>
+        <th> CLA</th>
+        <th> CLD</th>
+        <th> CLA DATE</th>
+        <th> CLD DATE</th>
+        <th> Effective Date</th>
+
+    </tr>
+    {% for buyer in credit_list %}
+       <tr>
+           <td>{{buyer.Insured_Name}}</td>
+           <td>{{buyer.Buyer_name}}</td>
+           <td>{{buyer.PAN}}</td>
+           <td>{{buyer.CLA}}</td>
+           <td>{{buyer.CLD}}</td>
+           <td>{{buyer.CLA_Date}}</td>
+           <td>{{buyer.CLD_Date}}</td>
+           <td>{{buyer.Effective_Date}}</td>
+
+
+       </tr>
+
+    {%  endfor %}
+    </table>
 </div>
 
 
@@ -164,3 +214,4 @@ div.container {
 {%  endblock %}
 
 </body>
+</font>
